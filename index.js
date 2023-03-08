@@ -11,17 +11,22 @@
   
 //     return stampdutyObject;
 //   };
+let bandA = 145000;
+let bandB = 250000;
+let bandC = 325000;
+let bandD = bandD;
+
   function calculate(price) {
-    if (price <= 145000) {
+    if (price < bandA) {
       return 0;
-    } else if (price > 145000 && price <= 250000) {
+    } else if (price > bandA && price <= bandB) {
       return price * 0.02;
-    } else if (price > 250000 && price <= 325000) {
-      return (price - 250000) * 0.05 + (250000 - 145000) * 0.02;
-    } else if (price > 325000 && price <= 750000) {
-      return (price - 325000) * 0.1 + (325000 - 250000) * 0.05 + (250000 - 145000) * 0.02;
+    } else if (price > bandB && price <= bandC) {
+      return (price - bandB) * 0.05 + (bandB - bandA) * 0.02;
+    } else if (price > bandC && price <= bandD) {
+      return (price - bandC) * 0.1 + (bandC - bandB) * 0.05 + (bandB - bandA) * 0.02;
     } else {
-      return (price - 750000) * 0.12 + (750000 - 325000) * 0.1 + (325000 - 250000) * 0.05 + (250000 - 145000) * 0.02;
+      return (price - bandD) * 0.12 + (bandD - bandC) * 0.1 + (bandC - bandB) * 0.05 + (bandB - bandA) * 0.02;
     }
   }
   
