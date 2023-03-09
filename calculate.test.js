@@ -1,4 +1,4 @@
-const javascript = require("./index.js");
+const javascript = require("./pricing.js");
 
 
 test('given 100000 to return 0', () => {

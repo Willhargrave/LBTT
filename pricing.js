@@ -21,3 +21,4 @@ let rateD = 0.12;
     }
   }
   
+module.exports = calculate;
