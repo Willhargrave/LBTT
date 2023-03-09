@@ -7,18 +7,23 @@ let rateA = 0.02;
 let rateB = 0.05;
 let rateC = 0.1;
 let rateD = 0.12;
-  function calculate(price) {
-    if (price < bandA) {
-      return 0;
-    } else if (price > bandA && price <= bandB) {
-      return price * rateA;
-    } else if (price > bandB && price <= bandC) {
-      return (price - bandB) * rateB + (bandB - bandA) * rateA;
-    } else if (price > bandC && price <= bandD) {
-      return (price - bandC) * rateC + (bandC - bandB) * rateB + (bandB - bandA) * rateA;
-    } else {
-      return (price - bandD) * rateD + (bandD - bandC) * rateC + (bandC - bandB) * rateB + (bandB - bandA) * rateA;
-    }
-  }
-  
-module.exports = calculate;
+
+function calculate(price) {
+  if (isNaN(price) || !Number.isInteger(price)) {
+    return "Please enter a full number";
+  } else if (price < bandA) {
+    return 0;
+  } else if (price <= bandB) {
+    return Math.floor((price - bandA) * rateA);
+  } else if (price <= bandC) {
+    return Math.floor((bandB - bandA) * rateA + (price - bandB) * rateB);
+  } else if (price <= bandD) {
+    return Math.floor((bandB - bandA) * rateA + (bandC - bandB) * rateB + (price - bandC) * rateC);
+  } else {
+    return Math.floor((bandB - bandA) * rateA + (bandC - bandB) * rateB + (bandD - bandC) * rateC + (price - bandD) * rateD);
+  } 
+}
+
+module.exports = {
+  calculate
+};
