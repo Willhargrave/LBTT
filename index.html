@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lbtt Calculater</title>
+  <meta charset="UTF-8">
+  <title>Price Calculator</title>
+  <script src="pricing.js"></script>
 </head>
 <body>
-    <form>
-        <input type="text" name="" id="">
-        <button onsubmit="calculator(price)">Go!</button>
-    </form>
-    
+  <h1>Price Calculator</h1>
+  <form onsubmit="pricing.handleFormSubmit(event)">
+    <label for="price">Enter price:</label>
+    <input type="number" id="price" name="price">
+    <button type="submit">Calculate</button>
+  </form>
+  
+  <p id="result"></p>
+  
+  <script>
+    const resultElement = document.getElementById('result');
+    resultElement.textContent = 'Please enter a price';
+  </script>
 </body>
-<script src="pricing.js"></script>
 </html>
 <!-- The buyer of the house currently owns a property and lives in it as their main residence.
  The buyer does not conduct any kind of business activity from their house i.e., it is purely for
