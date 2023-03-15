@@ -18,7 +18,9 @@ test('given 1200000 to return 102350', () => {
 test('given hello to return please enter a full number', () => {
     expect(pricing.calculate("hello")).toBe("Please enter a full number");
 })
-
+test('give -5 to return please enter a full number', () => {
+  expect(pricing.calculate(-5)).toBe("Please enter a full number");
+})
 test('given 20.2 to return please enter a full number', () => {
     expect(pricing.calculate(20.2)).toBe("Please enter a full number");
 })
