@@ -1,19 +1,18 @@
 
 // Put the bands and the rates in an object
-const rate = (level, tax) => ({level, tax});
-const bracket = {
-  bandA: rate(145000, 0.02),
-  bandB: rate(250000, 0.05),
-  bandC: rate(325000, 0.1),
-  bandD: rate(750000, 0.12)
-}
-function calculate(price, bracket) {
-  if (isNaN(price) || !Number.isInteger(price)) {
+const bracket = [
+  { level: 145000, tax: 0.02 },
+  { level: 250000, tax: 0.05 },
+  { level: 325000, tax: 0.1 },
+  { level: 750000, tax: 0.12 }
+];
+function calculate(price) {
+  if (isNaN(price) || !Number.isInteger(price) || price < 0) {
     return "Please enter a full number";
-  }  else if (price < bandA.level) {
+  }  else if (price < bracket[0].level)  {
     return 0;
   } else {
-    for (let i = 0; price < bracket.level[i + 1]; i++) {
+    for (let i = 0; price < bracket[i + 1]?.level; i++) {
          (price - bracket.level[i]) * bracket.rate[i] 
         }
   }
