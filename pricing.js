@@ -12,9 +12,13 @@ function calculate(price) {
   }  else if (price < bracket[0].level)  {
     return 0;
   } else {
-    for (let i = 0; price < bracket[i + 1]?.level; i++) {
-         (price - bracket.level[i]) * bracket.rate[i] 
+    let tax = 0;
+    for (let i = 0; i < bracket.length && price >= bracket[i]?.level; i++) {
+      const bandPrice = Math.min(price, bracket[i + 1]?.level ?? Infinity) - bracket[i].level;
+      const bandTax = bandPrice * bracket[i].tax;
+      tax += bandTax;
         }
+      return Math.floor(tax);
   }
 }
 
