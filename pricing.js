@@ -1,14 +1,4 @@
-let bandA = 145000;
-let bandB = 250000;
-let bandC = 325000;
-let bandD = 750000;
-let bandE = 1000000;
 
-let rateA = 0.02;
-let rateB = 0.05;
-let rateC = 0.1;
-let rateD = 0.12;
-let rateE = 0.15;
 // Put the bands and the rates in an object
 const rate = (level, tax) => ({level, tax});
 const bracket = {
@@ -17,29 +7,16 @@ const bracket = {
   bandC: rate(325000, 0.1),
   bandD: rate(750000, 0.12)
 }
-function calculate(price) {
-  if (isNaN(price, bracket) || !Number.isInteger(price)) {
+function calculate(price, bracket) {
+  if (isNaN(price) || !Number.isInteger(price)) {
     return "Please enter a full number";
-  }  else if (price < bandA) {
+  }  else if (price < bandA.level) {
     return 0;
   } else {
-    for (let i = 0; i < bracket.length; i++) {
-       //(price - bandA) * 0.02
-    }
+    for (let i = 0; price < bracket.level[i + 1]; i++) {
+         (price - bracket.level[i]) * bracket.rate[i] 
+        }
   }
-  //for loop where the price is lower than each band
-  //inside the for loop minus the price from the band and then times it by the rate
-  // else if (price <= bandB) {
-  //   return Math.floor((price - bandA) * rateA);
-  // } else if (price <= bandC) {
-  //   return Math.floor((bandB - bandA) * rateA + (price - bandB) * rateB);
-  // } else if (price <= bandD) {
-  //   return Math.floor((bandB - bandA) * rateA + (bandC - bandB) * rateB + (price - bandC) * rateC);
-  // } else if (price <= bandE) {
-  //   return Math.floor((bandB - bandA) * rateA + (bandC - bandB) * rateB + (bandD - bandC) * rateC + (price - bandD) * rateD);
-  // }  else {
-  //   return Math.floor((bandB - bandA) * rateA + (bandC - bandB) * rateB + (bandD - bandC) * rateC + (price - bandD) * rateD + (price - bandE) * rateE);
-  // } 
 }
 
 module.exports = {
