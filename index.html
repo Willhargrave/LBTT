@@ -3,22 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>Price Calculator</title>
-  <script src="dist/bundle.js"></script>
 </head>
 <body>
-  <h1>Price Calculator</h1>
-  <form onsubmit="pricing.handleFormSubmit(event)">
-    <label for="price">Enter price:</label>
-    <input type="number" id="price" name="price">
-    <button type="submit">Calculate</button>
-  </form>
+  <body>
+    <h1>Price Calculator</h1>
+    <form>
+      <label for="price">Enter price:</label>
+      <input type="number" id="price" name="price">
+      <button type="submit">Calculate</button>
+    </form>
   
-  <p id="result"></p>
+    <p id="result"></p>
   
-  <script>
-    const resultElement = document.getElementById('result');
-    resultElement.textContent = 'Please enter a price';
-  </script>
+    <script src="pricing.js"></script>
+  </body>
 </body>
 </html>
 

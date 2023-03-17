@@ -18,10 +18,25 @@ function calculate(price) {
       const bandTax = bandPrice * bracket[i].tax;
       tax += bandTax;
         }
+      console.log(Math.floor(tax))
       return Math.floor(tax);
+
+  }
+}
+function updateResult() {
+  const priceElement = document.getElementById('price');
+  const resultElement = document.getElementById('result');
+  const price = parseInt(priceElement.value);
+  const tax = calculate(price);
+  if (typeof tax === 'string') {
+    resultElement.textContent = tax;
+  } else {
+    resultElement.textContent = `The tax is ${tax} dollars.`;
   }
 }
 
-module.exports = {
-  calculate
-};
+const formElement = document.querySelector('form');
+formElement.addEventListener('submit', (event) => {
+  event.preventDefault();
+  updateResult();
+});
