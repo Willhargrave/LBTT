@@ -31,7 +31,8 @@ function updateResult() {
   if (typeof tax === 'string') {
     resultElement.textContent = tax;
   } else {
-    resultElement.textContent = `The tax is ${tax} dollars.`;
+    const taxFormatted = tax.toLocaleString()
+    resultElement.textContent = `The tax is £${taxFormatted}.`;
   }
 }
 
