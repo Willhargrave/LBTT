@@ -1,8 +1,8 @@
 body {
     background-color: rgb(42, 31, 31);
 }
-.container {
-    margin-top: 200px;
+.card-container {
+    margin-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
